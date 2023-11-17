@@ -18,6 +18,7 @@ export default function Modal({ children, show = false, maxWidth = '2xl', closea
 
     return (
         <Transition show={show} as={Fragment} leave="duration-200">
+
             <Dialog
                 as="div"
                 id="modal"
@@ -48,6 +49,7 @@ export default function Modal({ children, show = false, maxWidth = '2xl', closea
                     <Dialog.Panel
                         className={`mb-6 bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full sm:mx-auto ${maxWidthClass}`}
                     >
+                       <button className="float-right bg-red-500 p-2  rounded" onClick={onClose}>X</button>
                         {children}
                     </Dialog.Panel>
                 </Transition.Child>

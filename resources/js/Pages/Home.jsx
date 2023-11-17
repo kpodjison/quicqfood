@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import GuestWrapper from "@/Components/GuestWrapper.jsx";
 import ProductCard from "@/Components/ProductCard.jsx";
 
+
 export default function Home() {
+
   return (
     <>
     <GuestWrapper>
@@ -37,6 +39,7 @@ export default function Home() {
             <ProductCard />
             <ProductCard />
         </div>
+
 
     </GuestWrapper>
     </>
