@@ -7,7 +7,7 @@ export default function GuestWrapper({auth,children}) {
           <>
               <Head title="Emma" />
               <div className="min-h-screen landingPage bg-center bg-no-repeat bg-cover scroll-smooth">
-                  <div className="w-full  p-6 flex bg-[#0004] justify-between">
+                  <div className="w-full  p-6 flex bg-[#0009] justify-between">
                       <Link
                           href={route("dashboard")}
                           className="font-bold text-white  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
@@ -48,7 +48,7 @@ export default function GuestWrapper({auth,children}) {
 
               <style>{`
                 .landingPage {
-                    background-image: url("brooke-lark-M4E7X3z80PQ-unsplash.jpg");
+                    background-image: url("1.jpg");
                 }
 
             `}</style>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {BiDish, BiMinus, BiSolidDish} from "react-icons/bi";
 import {BsFire, BsPlus} from "react-icons/bs";
 import ProductInfoIcons from "@/Components/ProductInfoIcons.jsx";
@@ -6,6 +6,18 @@ import {RiStarHalfSLine} from "react-icons/ri";
 import {GiShoppingCart} from "react-icons/gi";
 
 export default  function SingleProduct(){
+    const [productCount,setProductCount] = useState(1);
+    const increaseProduct = () =>{
+        if(productCount > 1){
+            setProductCount(productCount - 1)
+        }
+    }
+    const decreaseProduct = () =>{
+        setProductCount(productCount + 1)
+    }
+    const handleSubmit = () =>{
+        console.log(productCount)
+    }
     return(
         <>
             <div className="my-2 flex flex-row px-2">
@@ -29,19 +41,20 @@ export default  function SingleProduct(){
                     <small>lolrem ipsum lo lo arem rem ipsum lo lo arem rem ipsum lo lo arem</small>
                     <hr className="border-b-2 border-dashed my-1"/>
                     <div className="bg-orange-500 p-2 rounded-xl w-1/2">
-                        <form >
+                        <form onSubmit={handleSubmit} >
                             <div className="flex flex-row justify-between">
                                 <div>
-                                    <label className="text-white">$ <span>15</span></label>
+                                    {/* Todo -- fix float int multiplication (give number of decimal places) */}
+                                    <label className="text-white">$ <span>{15 * productCount}</span></label>
                                     <input type="number" value="15"  hidden/>
                                 </div>
 
                                 <div className="flex flex-row w-1/2">
                                     <div className="flex border rounded border-white flex-row w-[70px] justify-between align-center text-white">
 
-                                        <BiMinus className="mt-1"/>
-                                        <p>1</p>
-                                        <BsPlus className="mt-1" />
+                                        <BiMinus className="mt-1 cursor-pointer" onClick={increaseProduct}/>
+                                        <p>{productCount}</p>
+                                        <BsPlus className="mt-1 cursor-pointer" onClick={decreaseProduct}/>
                                     </div>
                                     <button className="bg-white w-7 h-6 rounded ps-1 pt-1 mx-1">
                                         <GiShoppingCart className="text-amber-600"/>
